@@ -1,23 +1,18 @@
-import React, { Component } from 'react';
 // import { PokerPlayer } from '../types/PokerPlayer';
 
-class Table extends Component {
-    constructor() {
-        super();
-        this.state = {
-            tableCards: [],
-            opponents: [],
-            pot: 0,
-            time: 45
-        }
-    }
-    render() {
-        return (
+import { isPropertySignature } from "typescript"
+
+const Table = (props) => {
+    return (
+        <div>
+            <h1>Table</h1>
+            <button onClick={props.startTimer}>Start Timer</button>
+            <button onClick={props.stopTimer}>Stop Timer</button>
             <div>
-                table
+                <button onClick={props.startGame}>Start Game</button>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default Table;
