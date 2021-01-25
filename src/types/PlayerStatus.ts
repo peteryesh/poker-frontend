@@ -1,7 +1,7 @@
 export enum PlayerStatus {
     INACTIVE,
     ELIMINATED,
-    ACTIVE,
     PLAYING,
+    ACTIVE,
     CURRENT
 }

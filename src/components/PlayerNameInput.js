@@ -4,7 +4,7 @@ const PlayerNameInput = (props) => {
         <form onSubmit={submitName}>
             Name:
             <input type="text" value={playerName} onChange={handlePlayerNameInput}/>
-            
+            <button type="submit">Submit</button>
         </form>
     )
 }

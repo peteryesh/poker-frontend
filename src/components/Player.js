@@ -1,14 +1,35 @@
+import PlayingCard from './PlayingCard';
+import PokerOptions from '../types/PokerOptions';
+
 const Player = (props) => {
-    const {cards, chipCount, status, betSize, placeBet, value, time} = props;
+    const {name, chips, status, betSize} = props.player;
+    const {cards, placeBet, time} = props;
+
+    let playerHeader = <h1>{name}</h1>;
+    if(props.position === props.dealer) {
+        playerHeader = <h1>{name} (dealer)</h1>;
+    }
+    else if(props.position === props.sb) {
+        playerHeader = <h1>{name} (sb)</h1>;
+    }
+    else if(props.position === props.bb) {
+        playerHeader = <h1>{name} (bb)</h1>;
+    }
     return (
         <div>
-            <h1>PLAYER</h1>
-            <div>Cards: {cards}</div>
-            <div>Chips: {chipCount}</div>
+            {playerHeader}
+            {
+                cards.map((card, index) => (
+                    <PlayingCard
+                        key={name.concat(index)}
+                        card={card}
+                    />
+                ))
+            }
+            <div>Name: {name}</div>
             <div>Bet Size: {betSize}</div>
+            <div>Chips: {chips}</div>
             <div>Timer: {time}</div>
-            <button onClick={() => placeBet()}>Hit event</button>
-            <div>{value}</div>
         </div>
     )
 }
